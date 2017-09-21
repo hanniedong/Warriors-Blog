@@ -1,18 +1,15 @@
-<div class = "container">
+<div class = "container-fluid">
 
-  <div class = "page-header">
-    <h1>Images</h1>
-  </div>
-  <p id="notice"><%= notice %></p>
+  <h1>Images</h1>
 
   <div class="row">
     <% @images.each do |image| %>
-       <div class="col-md-4">
-           <div class="thumbnail">
-             <img class="img-responsive" > <%= image_tag(image.image_url(:thumb).to_s) %> </img>
+       <div class="col-md-3 col-sm-3 col-xs-6">
+          <%= link_to 'View', image %> | 
+          <%= link_to 'Delete', image, method: :delete, data: { confirm: 'Are you sure?' } %> 
+          <div class="img-responsive thumbnail">
+             <%= image_tag(image.image_url(:thumb).to_s) %> 
           </div>
-              <%= link_to 'View', image %> | 
-              <%= link_to 'Delete', image, method: :delete, data: { confirm: 'Are you sure?' } %> <br>
       </div>
     <% end %>
   </div>

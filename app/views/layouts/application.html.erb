@@ -6,19 +6,46 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <style>
+    .row.content {height: 1500px}
+
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;} 
+    }
+  </style>
   </head>
 
   <body>
-    <ul class="nav nav-pills align-right">
-        <% if logged_in? %>
-          <li role="presentation"> <%= link_to "Home", articles_path %> </li>
-          <li role="presentation"><%= link_to 'Images', images_path %> </li>
-          <li role="presentation"><%= link_to "Logout", logout_path %></li>
-      <% elsif session[:user_id] == nil %>
-        <li role="presentation"><%= link_to "Login", login_path %> </li>
-        <li role="presentation"><%= link_to "Register", register_path %></li>
-      <% end %>
-    </ul>
-    <%= yield %>
+    <div class = "container-fluid">
+      <div class = "row content">
+        <div class = "col-sm-3 sidenav">
+          <h2> Life as a Warriors Dancer </h2>
+          <ul class="nav nav-pills nav-stacked">
+            <% if logged_in? %>
+              <% if session[:user_id] == 1 %>
+                <li role="presentation"><%= link_to "New Post", new_article_path %></li>
+              <% end %>
+              <li role="presentation"> <%= link_to "Home", articles_path %> </li>
+              <li role="presentation"><%= link_to 'Images', images_path %> </li>
+              <li role="presentation"><%= link_to "Logout", logout_path %></li>
+            <% elsif session[:user_id] == nil %>
+              <li role="presentation"><%= link_to "Login", login_path %> </li>
+              <li role="presentation"><%= link_to "Register", register_path %></li>
+            <% end %>
+          </ul><br>
+        </div>
+        <div class="col-sm-9">
+        <%= yield %>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

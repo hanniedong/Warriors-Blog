@@ -1,11 +1,9 @@
-<div class = "container">
+<div class = "container padding">
 
-  <p id="notice"><%= notice %></p>
-
-  <p>
+  <img class = "img-responsive" width="304" height="236">
     <%= image_tag(@image.image_url.to_s) %>
-  </p>
+  </img>
+  <br>
 
   <%= link_to 'Back', images_path %>
-
 </div>
