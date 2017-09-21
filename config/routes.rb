@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :articles
+  get 'welcome/index'
 
-  root 'articles#index'
+  root 'welcome#index'
+  
+  resources :articles
   
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
@@ -11,4 +13,6 @@ Rails.application.routes.draw do
   resources :users
     get '/register', to: 'users#new'
     post '/register', to: 'users#create'
+
+  resources :photos
 end

@@ -1,5 +1,7 @@
 <div class = "container">
-  <h1> Create New Entry </h1>
+  <div class = "page-header">
+    <h2> Create New Entry </h2>
+  </div>
   <%= form_for @article do |f| %>
 
     <% if @article.errors.any? %>
@@ -17,7 +19,7 @@
     <% end %>
     <p>
       <%= f.label :category %><br>
-      <%= f.text_field :category %>
+        <%= f.select :category, [['Practice','practice'],['Games','game'],['Special Event','special_event'],['Other','other']] %>
     </p>
     <p>
       <%= f.label :title %><br>
