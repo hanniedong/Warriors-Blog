@@ -1,2 +1,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "articles";
+
+.align-right{
+  float: right;
+}
+
+.container{
+  padding: 20px
+}

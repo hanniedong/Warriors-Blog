@@ -1,19 +1,36 @@
 class ArticlesController < ApplicationController
+  include SessionsHelper
 
   def index
-    @articles = Article.all
+    if logged_in?
+      @articles = Article.all
+    else
+      redirect_to login_path
+    end
   end
 
   def show
-    @article = Article.find(params[:id])
+    if logged_in?
+      @article = Article.find(params[:id])
+    else
+      redirect_to login_path
+    end
   end
 
   def new
-    @article = Article.new
+    if logged_in?
+      @article = Article.new
+    else
+      redirect_to login_path
+    end
   end
 
   def edit
-    @article = Article.find(params[:id])
+    if logged_in?
+      @article = Article.find(params[:id])
+    else
+      redirect_to login_path
+    end
   end
 
   def create
@@ -45,6 +62,6 @@ class ArticlesController < ApplicationController
 
   private
     def article_params
-      params.require(:article).permit(:title, :text)
+      params.require(:article).permit(:title, :category, :text)
     end
 end
