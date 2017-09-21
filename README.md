@@ -1,24 +1,6 @@
-# README
+# Warriors Blog
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a an app that practices using Ruby on Rails in order to implement a personalized blog accessed by user login. 
 
-Things you may want to cover:
+Users will need to sign into their account in order to view the author's entries and photos. 
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
