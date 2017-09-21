@@ -4,6 +4,10 @@ module SessionsHelper
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
+  def admin?
+    session[:user_id] == 1
+  end 
+
   def logged_in?
     !!current_user
   end
