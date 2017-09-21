@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   include SessionsHelper
 
   def index
-    if logged_in?
+    if logged_in? 
       @articles = Article.all
     else
       redirect_to login_path
@@ -18,7 +18,7 @@ class ArticlesController < ApplicationController
   end
 
   def new
-    if logged_in?
+    if logged_in? && admin?
       @article = Article.new
     else
       redirect_to login_path
@@ -26,7 +26,7 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    if logged_in?
+    if logged_in? && admin?
       @article = Article.find(params[:id])
     else
       redirect_to login_path
