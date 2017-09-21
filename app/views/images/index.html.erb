@@ -5,8 +5,10 @@
   <div class="row">
     <% @images.each do |image| %>
        <div class="col-md-3 col-sm-3 col-xs-6">
-          <%= link_to 'View', image %> | 
-          <%= link_to 'Delete', image, method: :delete, data: { confirm: 'Are you sure?' } %> 
+          <%= link_to 'View', image %>  
+          <% if admin? %>
+           | <%= link_to 'Delete', image, method: :delete, data: { confirm: 'Are you sure?' } %> 
+          <% end %>
           <div class="img-responsive thumbnail">
              <%= image_tag(image.image_url(:thumb).to_s) %> 
           </div>

@@ -1,5 +1,6 @@
 class ImagesController < ApplicationController
   before_action :set_image, only: [:show, :edit, :update, :destroy]
+  include SessionsHelper
 
   # GET /images
   # GET /images.json
@@ -38,10 +39,12 @@ class ImagesController < ApplicationController
   # DELETE /images/1
   # DELETE /images/1.json
   def destroy
-    @image.destroy
-    respond_to do |format|
-      format.html { redirect_to images_url, notice: 'Image was successfully destroyed.' }
-      format.json { head :no_content }
+    if admin?
+      @image.destroy
+      respond_to do |format|
+        format.html { redirect_to images_url, notice: 'Image was successfully destroyed.' }
+        format.json { head :no_content }
+    end
     end
   end
 
