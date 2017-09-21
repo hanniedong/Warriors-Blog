@@ -1,5 +1,8 @@
-<h2> Login </h2>
-    
+<div class= "container">
+  
+  <h2> Login </h2>
+
+
   <%= form_for(:sessions, url: login_path) do |f| %>
 
   <% if @errors && @errors.any? %>
@@ -20,3 +23,4 @@
 
     <%= f.submit 'Login'%>
   <% end %>
+</div>
