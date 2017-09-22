@@ -1,0 +1,9 @@
+<%= form_with(model: [ @article, @article.comments.build ], local: true) do |form| %>
+  <p>
+    <%= form.text_area :body %>
+  </p>
+  <p>
+    <%= form.hidden_field :user_id, :value => session[:user_id] %>
+    <%= form.submit %>
+  </p>
+<% end %>
