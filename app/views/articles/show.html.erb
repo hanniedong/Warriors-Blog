@@ -5,9 +5,23 @@
 
 
   <p> <%= @article.text %> </p>
+
   <% if admin? %>
     <%= link_to 'Edit', edit_article_path(@article) %> |
   <% end %>
+
+  <br>
+  <h4>Comments</h4>
+  <% if @article.comments.count == 0  %>
+    <p> Post a comment! </p>
+  <% end %>
+
+  <%= render 'comments/comment' %>
+
+  <br>
+  <h4>Add a comment:</h4>
+  <%= render 'comments/form' %>
+  <br>
   <%= link_to 'Back', articles_path %>
 <div> 
 
