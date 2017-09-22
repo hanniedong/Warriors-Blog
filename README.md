@@ -8,3 +8,4 @@ Only the author has access to edit and delete entries as well as to delete photo
 
 [![image](https://github.com/hanniedong/warriorsblog/blob/development-branch/app/assets/images/warriors-1.png)](#features)
 [![image](https://github.com/hanniedong/warriorsblog/blob/development-branch/app/assets/images/warriors.png)](#features)
+[![image](https://github.com/hanniedong/warriorsblog/blob/development-branch/app/assets/images/warriors-3.png)](#features)
