@@ -1,13 +1,14 @@
 <% @article.comments.each do |comment| %>
-  <p>
     <%= comment.body %>
     <br>
     - <%= comment.user.username %>
     <br>
     <%  if comment.user.id == session[:user_id] %>
+      <button type="button" class="btn btn-default">      
       <%= link_to 'Delete', [comment.article, comment],
           method: :delete,
           data: { confirm: 'Are you sure?' } %>
+      </button>
     <% end %>
   </p>
 <% end %>
