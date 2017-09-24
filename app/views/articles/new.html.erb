@@ -2,42 +2,46 @@
 
   <h2> Create New Entry </h2>
 
-  <%= form_for @article do |f| %>
+  <form>
+    <div class="form-group">
+      <%= form_for @article do |f| %>
 
-    <% if @article.errors.any? %>
-      <div id="error_explanation">
-        <h2>
-          <%= pluralize(@article.errors.count, "error") %> prohibited
-          this article from being saved:
-        </h2>
-        <ul>
-          <% @article.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-    <p>
-      <%= f.label :category %><br>
-        <%= f.select :category, [['Practice','practice'],['Games','game'],['Special Event','special_event'],['Other','other']] %>
-    </p>
-    <p>
-      <%= f.label :title %><br>
-      <%= f.text_field :title %>
-    </p>
+        <% if @article.errors.any? %>
+          <div id="error_explanation">
+            <h2>
+              <%= pluralize(@article.errors.count, "error") %> prohibited
+              this article from being saved:
+            </h2>
+            <ul>
+              <% @article.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <p>
+          <%= f.label :category %><br>
+            <%= f.select :category, [['Practice','practice'],['Games','game'],['Special Event','special_event'],['Other','other']] %>
+        </p>
+        <p>
+          <%= f.label :title %><br>
+          <%= f.text_field :title %>
+        </p>
 
-    <p>
-      <%= f.label :text %><br>
-      <%= f.text_area :text %>
-    </p>
+        <p>
+          <%= f.label :text %><br>
+          <%= f.text_area :text %>
+        </p>
 
-    <p>
-      <%= f.hidden_field :user_id, :value => session[:user_id]  %>
-    </p>
+        <p>
+          <%= f.hidden_field :user_id, :value => session[:user_id]  %>
+        </p>
 
-    <p>
-      <%= f.submit %>
-    </p>
+        <p>
+          <%= f.submit %>
+        </p>
 
-  <% end %>
+      <% end %>
+    </div>
+  </form>
 </div>
