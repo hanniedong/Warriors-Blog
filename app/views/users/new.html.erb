@@ -1,7 +1,7 @@
 <div class = "container">
   <h1>Register</h1>
 
-  <%= form_for :user, url: register_path do |f| %>
+  <%= bootstrap_form_for(:users, url: register_path, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-5") do |f| %>
 
     <% if @errors %>
       <ul>
@@ -12,16 +12,12 @@
     <% end %>
     
     <%= f.text_field :first_name, placeholder: "First Name" %>
-    <br>
     <%= f.text_field :last_name, placeholder: "Last Name" %>
-    <br>
     <%= f.text_field :username, placeholder: "Username" %>
-    <br>
     <%= f.email_field :email, placeholder: "Email" %>
-    <br>
     <%= f.password_field :password, placeholder: "Password" %>
-    <br>
-
-    <%= f.submit "Register" %>
+    <%= f.form_group do %>
+      <%= f.submit "Register" %>
+    <% end %>
   <% end %>
 </div>
